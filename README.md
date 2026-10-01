@@ -554,3 +554,179 @@ Dashboard
 The project can be deployed using Streamlit Community Cloud.
 
 General deployment process:
+```
+GitHub Repository
+       ↓
+Streamlit Community Cloud
+       ↓
+Select Repository
+       ↓
+Select Branch
+       ↓
+Select app.py
+       ↓
+Deploy
+```
+The application uses in-memory uploads/downloads, so it does not require local file paths for the web application.
+
+⚠️ When hosted online, uploaded files pass through the server. Therefore, the deployment should be treated as an academic demonstration environment rather than a production secure-storage service.
+
+📤 GitHub Upload
+---
+
+Initialize Git:
+```
+git init
+```
+Add files:
+```
+git add .
+```
+Commit:
+```
+git commit -m "Secure File Vault"
+```
+Set main branch:
+```
+git branch -M main
+```
+Add GitHub repository:
+```
+git remote add origin <YOUR-REPOSITORY-URL>
+```
+Push:
+```
+git push -u origin main
+```
+Before pushing, check:
+```
+git status
+```
+Make sure sensitive files such as:
+```
+*.pem
+*.sfv
+.env
+```
+are not accidentally included.
+
+🛡️ Security Notes
+---
+This project is an academic prototype.
+
+Important considerations:
+Private keys must be protected carefully.
+A strong private-key password should be used when password protection is enabled.
+A compromised computer can expose plaintext files or cryptographic keys.
+Files are processed in memory.
+Current file-size limit is approximately 50 MB.
+The .sfv container reveals metadata such as filename, file size and timestamp.
+The project has not undergone a professional security audit.
+This project should not be used as a replacement for production-grade encryption software.
+
+🎯 Threat Model
+---
+| Threat                          | Protection / Result                                            |
+| ------------------------------- | -------------------------------------------------------------- |
+| Stolen `.sfv` file              | Plaintext cannot be recovered without the required private key |
+| Modified ciphertext             | AES-GCM authentication fails                                   |
+| Modified authenticated metadata | GCM authentication fails                                       |
+| Wrong RSA private key           | AES-key unwrapping fails                                       |
+| Stolen private key              | Attacker may decrypt files protected by that key               |
+| Weak private-key password       | Reduces protection of the private key                          |
+| Compromised computer            | Encryption cannot protect data already exposed on the endpoint |
+
+📊 Advantages
+---
+Uses modern authenticated encryption.
+Efficient for large files compared with RSA-only encryption.
+Separates data encryption from key encryption.
+Provides tamper detection.
+Supports RSA key management.
+Provides a user-friendly Streamlit interface.
+Demonstrates multiple CNS concepts in one project.
+Includes automated tests and validation.
+
+⚠️ Limitations
+---
+Academic prototype.
+Not professionally security-audited.
+Files are processed in memory.
+Current file-size limit is 50 MB.
+Metadata such as filename, size and timestamp is stored in the container.
+Security depends on proper private-key management.
+Hosted deployment requires care because uploaded files pass through the server.
+
+📚 CNS Concepts Demonstrated
+---
+
+This project demonstrates the following concepts from Cryptography & Network Security:
+
+✔ Symmetric Cryptography
+✔ Asymmetric Cryptography
+✔ AES
+✔ RSA
+✔ OAEP
+✔ SHA-256
+✔ Message Authentication
+✔ Integrity Verification
+✔ Key Management
+✔ Hybrid Encryption
+✔ Secure File Storage
+✔ Tamper Detection
+✔ Input Validation
+✔ Basic Security Threat Modeling
+
+🔗 GitHub Repository
+---
+
+Repository:
+```
+<YOUR-GITHUB-REPOSITORY-LINK>
+```
+Replace the placeholder above with your actual GitHub repository URL before submission.
+
+🌐 Live Demo
+---
+
+Live Demo:
+```
+<YOUR-LIVE-DEMO-LINK>
+```
+If the project is only running locally:
+```
+http://localhost:8501
+```
+localhost is only accessible from the computer running the application and should not be submitted as a public live-demo URL.
+
+👨‍💻 Author
+---
+
+Jitendra Gaherwar
+
+Roll Number: 149
+Batch: A3
+Department: Information Technology
+College: Priyadarshini College of Engineering, Nagpur
+Academic Year: 2026–2027
+
+📄 Project Type
+---
+
+Cryptography & Network Security — Mini Project
+
+Topic
+
+Hybrid Encryption System — RSA + AES
+
+Technology
+
+Python + Streamlit + Cryptography
+
+⭐ Conclusion
+---
+Secure File Vault demonstrates how symmetric and asymmetric cryptography can be combined to build a practical file-protection system.
+
+AES-256-GCM provides efficient authenticated encryption for the actual file data, while RSA-3072 with OAEP-SHA256 protects the AES encryption key. The system additionally demonstrates SHA-256 integrity verification, tamper detection, RSA key management, input validation, security logging and a user-friendly Streamlit interface.
+
+The project provides a practical demonstration of important Cryptography & Network Security concepts using Python.
