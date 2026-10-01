@@ -354,7 +354,7 @@ These support file handling, metadata, encoding, hashing, validation, logging an
 
 📁 Project Structure
 ---
-
+```
  secure-file-vault/
 │
 ├── app.py
@@ -388,14 +388,15 @@ These support file handling, metadata, encoding, hashing, validation, logging an
 │       └── components.py
 │
 └── tests/
+```
 
 💻 System Requirements
 ---
-# Hardware
+ Hardware
 Minimum 4 GB RAM recommended
 At least 500 MB free storage
 Modern computer capable of running Python
-# Software
+ Software
 Windows / Linux / macOS
 Python 3.10+
 VS Code or another Python IDE
@@ -404,6 +405,140 @@ Modern web browser
 ⚙️ Installation
 ---
 1. Clone the Repository
+   ```
    git clone <YOUR-GITHUB-REPOSITORY-LINK>
+   
+   ```
 Move into the project directory:
+```
    cd secure-file-vault
+```
+
+🐍 2. Create Virtual Environment
+---
+Windows
+```
+python -m venv .venv
+```
+Activate it:
+```
+.venv\Scripts\activate
+```
+Linux / macOS
+---
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
+📦 3. Install Dependencies
+---
+```
+pip install -r requirements.txt
+```
+▶️ 4. Run the Application
+---
+```
+streamlit run app.py
+```
+The application will normally open at:
+
+```
+http://localhost:8501
+```
+🧪 Run Tests
+---
+
+To run the automated test suite:
+```
+pytest -v
+```
+The tests cover important cryptographic and validation workflows such as:
+
+AES encryption/decryption
+RSA key operations
+Wrong-key rejection
+Password-protected private keys
+Tamper detection
+Invalid containers
+SHA-256 verification
+Filename sanitization
+Extension validation
+
+🖥️ Application Modules
+---
+
+The Streamlit application provides the following sections:
+
+🏠 Dashboard
+
+Provides an overview of the Secure File Vault system and cryptographic architecture.
+
+🔑 RSA Key Management
+
+Used to generate and manage RSA-3072 public/private key pairs.
+
+🔐 Encrypt File
+
+Allows the user to:
+
+Select a file.
+Upload the RSA public key.
+Generate a random AES key.
+Encrypt the file using AES-256-GCM.
+Wrap the AES key using RSA-OAEP.
+Generate the .sfv encrypted container.
+🔓 Decrypt File
+
+Allows the user to:
+
+Select an .sfv file.
+Upload the RSA private key.
+Recover the AES key.
+Verify the GCM authentication tag.
+Decrypt the original file.
+🛡️ Integrity Verification
+
+Allows SHA-256 based file integrity verification and tamper demonstrations.
+
+📊 Security Information
+
+Displays information about the cryptographic algorithms and security architecture.
+
+📋 Activity Log
+
+Displays relevant security activity events.
+
+ℹ️ About Project
+
+Provides project information and educational context.
+
+🎬 Project Demonstration
+---
+```
+Recommended demonstration flow:
+1. Open Dashboard
+        ↓
+2. Generate RSA Key Pair
+        ↓
+3. Select sample file
+        ↓
+4. Upload RSA Public Key
+        ↓
+5. Encrypt File
+        ↓
+6. Download .sfv file
+        ↓
+7. Calculate / note SHA-256
+        ↓
+8. Open Decrypt File
+        ↓
+9. Upload .sfv + Private Key
+        ↓
+10. Decrypt
+        ↓
+11. Compare SHA-256
+        ↓
+12. Open Integrity Verification
+        ↓
+13. Run Tamper Demonstration
+ ```
