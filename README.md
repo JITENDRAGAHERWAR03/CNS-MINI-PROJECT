@@ -638,6 +638,7 @@ This project should not be used as a replacement for production-grade encryption
 
 📊 Advantages
 ---
+
 Uses modern authenticated encryption.
 Efficient for large files compared with RSA-only encryption.
 Separates data encryption from key encryption.
@@ -647,8 +648,10 @@ Provides a user-friendly Streamlit interface.
 Demonstrates multiple CNS concepts in one project.
 Includes automated tests and validation.
 
+
 ⚠️ Limitations
 ---
+
 Academic prototype.
 Not professionally security-audited.
 Files are processed in memory.
@@ -656,6 +659,7 @@ Current file-size limit is 50 MB.
 Metadata such as filename, size and timestamp is stored in the container.
 Security depends on proper private-key management.
 Hosted deployment requires care because uploaded files pass through the server.
+
 
 📚 CNS Concepts Demonstrated
 ---
@@ -702,7 +706,7 @@ localhost is only accessible from the computer running the application and shoul
 
 👨‍💻 Author
 ---
-
+```
 Jitendra Gaherwar
 
 Roll Number: 149
@@ -710,6 +714,7 @@ Batch: A3
 Department: Information Technology
 College: Priyadarshini College of Engineering, Nagpur
 Academic Year: 2026–2027
+```
 📄 Project Type
 ---
 
