@@ -661,7 +661,7 @@ Hosted deployment requires care because uploaded files pass through the server.
 ---
 
 This project demonstrates the following concepts from Cryptography & Network Security:
-
+```
 ✔ Symmetric Cryptography
 ✔ Asymmetric Cryptography
 ✔ AES
@@ -676,6 +676,7 @@ This project demonstrates the following concepts from Cryptography & Network Sec
 ✔ Tamper Detection
 ✔ Input Validation
 ✔ Basic Security Threat Modeling
+```
 
 🔗 GitHub Repository
 ---
@@ -709,7 +710,6 @@ Batch: A3
 Department: Information Technology
 College: Priyadarshini College of Engineering, Nagpur
 Academic Year: 2026–2027
-
 📄 Project Type
 ---
 
