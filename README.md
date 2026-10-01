@@ -559,7 +559,7 @@ Encrypt File
 ```
 Decrypt File
 ```
-![Decrypt File](screenshots/decrypt-file.png)
+[Decrypt File](screenshots/decrypt-file.png)
 ```
 Integrity Verification
 ```
