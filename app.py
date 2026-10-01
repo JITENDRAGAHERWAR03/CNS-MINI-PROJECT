@@ -140,8 +140,20 @@ elif page == PAGES[6]:
 else:
     st.markdown("""**Secure File Vault**: CNS mini project demonstrating hybrid encryption.
 
-**Limitations:** academic prototype; private-key protection is critical; a compromised device
-defeats file encryption; whole files are processed in memory (50 MB limit); the .sfv header reveals
-the original filename, size and creation time; on shared hosting, uploaded files pass through the server.
+**Limitations:** Academic prototype; private-key protection is critical; a compromised device can defeat file encryption; the .sfv header reveals the original filename, size and creation time; on shared hosting, uploaded files pass through the hosting environment; this system does not provide password recovery if the private key is lost; large files may require significant memory during upload, encryption and decryption.
 
-Student Name: ______  Roll No: ______  Batch: ______  College: ______  Department: ______  Year: ______""")
+st.markdown("""
+### 👨‍💻 Project Information
+
+| Details | Information |
+|---|---|
+| **Student Name** | Jitendra Gaherwar |
+| **Roll No.** | 149 |
+| **Batch** | A3 |
+| **College** | Priyadarshini College of Engineering, Nagpur |
+| **Department** | Information Technology |
+| **Year** | Final Year |
+| **Project Type** | CNS Mini Project |
+| **Technology** | Python, Streamlit, Cryptography |
+| **Encryption** | RSA-OAEP + AES-256-GCM |
+""")
