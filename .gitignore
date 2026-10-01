@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.pem
+*.key
+data/*
+!data/.gitkeep
+!data/sample.txt
+*.sfv
+.DS_Store
+.pytest_cache/

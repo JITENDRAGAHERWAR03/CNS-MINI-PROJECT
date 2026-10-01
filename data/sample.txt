@@ -1,0 +1,2 @@
+Hello from Secure File Vault!
+This is a harmless sample file used for demonstration.
