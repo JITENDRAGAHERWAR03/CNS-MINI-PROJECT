@@ -287,3 +287,48 @@ Encryption Process
            v
       Original File
 ```
+🔐 Cryptography Concepts Used
+---
+| Concept                | Implementation                         |
+| ---------------------- | -------------------------------------- |
+| Symmetric Encryption   | AES-256-GCM                            |
+| Asymmetric Encryption  | RSA-3072                               |
+| Key Wrapping           | RSA-OAEP                               |
+| Hash Algorithm         | SHA-256                                |
+| Authentication         | AES-GCM Authentication Tag             |
+| Nonce                  | Random 96-bit GCM nonce                |
+| Associated Data        | `.sfv` header                          |
+| Integrity Verification | SHA-256 + AES-GCM authentication       |
+| Key Management         | RSA public/private key pair            |
+| Secure Comparison      | HMAC `compare_digest` where applicable |
+
+🛠️ Technologies Used
+Python
+Streamlit
+Cryptography
+Pytest
+Git
+GitHub
+---
+📚 Python Libraries Used
+cryptography
+
+Used for:
+
+AES-GCM
+RSA
+OAEP
+SHA-256
+Key serialization
+Public/private key handling
+streamlit
+
+Used to create the graphical web-based user interface.
+
+pytest
+
+Used for automated testing.
+---
+Python Standard Library
+
+The project also uses modules such as:
