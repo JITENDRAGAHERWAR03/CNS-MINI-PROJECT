@@ -558,9 +558,9 @@ Encrypt File
 ![Encrypt File](screenshots/encrypt-file.png)
 ```
 Decrypt File
-```
+
 [Decrypt File](screenshots/decrypt-file.png)
-```
+
 Integrity Verification
 ```
 ![Integrity Verification](screenshots/integrity-verification.png)
