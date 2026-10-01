@@ -1,42 +1,108 @@
 # 🔐 Secure File Vault
-Hybrid RSA-OAEP + AES-256-GCM file encryption, a CNS mini project (Python, Streamlit, `cryptography`).
 
-## How it works
-**Encrypt:** random AES-256 key + random 96-bit nonce → AES-GCM encrypts the file (ciphertext + 16-byte tag) → the AES key is wrapped with the RSA public key (OAEP-SHA256) → everything is stored in a `.sfv` container.
-**Decrypt:** RSA private key unwraps the AES key → AES-GCM decrypts and verifies the tag → the file is released only if authentication succeeds.
+### Hybrid RSA-OAEP + AES-256-GCM File Encryption System
 
-`.sfv` layout: `"SFV1" | header length | JSON header | tag | ciphertext`. The header (nonce, wrapped key, names, sizes, timestamp) is passed to GCM as associated data, so editing metadata is detected too. Base64 is used only to fit binary values into JSON.
+A Python-based **Cryptography & Network Security (CNS) Mini Project** that provides secure file encryption, decryption, integrity verification, and RSA key management using modern cryptographic techniques.
 
-## Project structure
-`app.py` UI · `src/crypto/` (aes, rsa, key_manager) · `src/core/` (container, validators) · `src/security/` (hashing, activity log) · `tests/`
+The project uses **AES-256-GCM** for efficient file encryption and **RSA-3072 with OAEP-SHA256** for secure AES key protection.
 
-## Install & run
-```
-python -m venv .venv
-.venv\Scripts\activate        # Windows   (Linux/macOS: source .venv/bin/activate)
-pip install -r requirements.txt
-streamlit run app.py
-pytest -v
-```
+> ⚠️ **Academic Project:** This application is developed for educational and demonstration purposes. It has not been professionally security-audited and should not be considered a replacement for production-grade encryption software.
 
-## Deploy (Streamlit Community Cloud)
-Push to GitHub (keys are git-ignored) → share.streamlit.io → New app → pick repo, branch, `app.py`. The app uses in-memory uploads/downloads only, so no local paths are needed. On a hosted app, files pass through the server, so use it for demos only.
+---
 
-## GitHub upload
-```
-git init && git add . && git commit -m "Secure File Vault"
-git branch -M main && git remote add origin <your-repo-url> && git push -u origin main
-```
-Check `git status` first: no `*.pem`, `*.sfv`, or `.env` should be listed.
+## 👨‍🎓 Student Information
 
-## Security notes and limitations
-Academic prototype. Private-key protection is critical (password protection helps only if the password is strong). A compromised computer defeats file encryption. Whole files are processed in memory (50 MB limit). The container reveals filename, size and time. Not audited; not a replacement for professional software.
+| Field | Details |
+|---|---|
+| **Student Name** | Jitendra Gaherwar |
+| **Roll Number** | 149 |
+| **Batch** | A3 |
+| **Department** | Information Technology |
+| **College** | Priyadarshini College of Engineering, Nagpur |
+| **Academic Year** | 2026–2027 |
+| **Course** | Cryptography & Network Security |
 
-## Threat model (short)
-Stolen `.sfv` → no plaintext without the private key · modified ciphertext/metadata → GCM tag fails · wrong key → AES-key unwrap fails · stolen private key → attacker can decrypt files for that key · weak key password → weaker protection.
+---
 
-## Demo
-Dashboard → generate keys → encrypt `data/sample.txt` → note SHA-256 → decrypt with the private key → compare hashes → Integrity Verification page → run the tamper demo.
+# 📌 Project Overview
 
-## Authors
-Student Name · Roll Number · Batch · College · Department · Academic Year (fill in)
+Secure File Vault is a hybrid cryptographic file protection system developed using Python and Streamlit.
+
+Instead of encrypting the complete file using RSA, the project combines two cryptographic algorithms:
+
+- **AES-256-GCM** → Encrypts the actual file data.
+- **RSA-3072 + OAEP-SHA256** → Encrypts/wraps the randomly generated AES key.
+- **SHA-256** → Provides additional file integrity verification.
+
+This approach combines the efficiency of symmetric encryption with the secure key-management capabilities of asymmetric encryption.
+
+---
+
+# 🎯 Problem Statement
+
+Sensitive files can be exposed to unauthorized access or modification when stored or transferred without proper encryption.
+
+RSA alone is not suitable for encrypting large files because it is comparatively slower and has input-size limitations.
+
+Therefore, this project implements a **Hybrid Encryption System** in which:
+
+1. AES encrypts the actual file.
+2. RSA securely protects the AES key.
+3. AES-GCM authentication detects unauthorized modifications.
+4. SHA-256 can be used to compare file integrity.
+
+---
+
+# 🎯 Objectives
+
+The main objectives of this project are:
+
+- 🔐 Encrypt files using AES-256-GCM.
+- 🔑 Generate and manage RSA-3072 key pairs.
+- 🛡️ Protect AES keys using RSA-OAEP-SHA256.
+- 🔓 Decrypt encrypted files securely.
+- 🔍 Detect modification of encrypted data.
+- 🧾 Verify file integrity using SHA-256.
+- 🛡️ Implement input validation and basic security protections.
+- 📁 Create a custom `.sfv` encrypted-file container.
+- 🖥️ Provide a user-friendly Streamlit interface.
+- 📝 Maintain security activity logs.
+- 🧪 Provide automated tests for important cryptographic workflows.
+
+---
+
+# ⭐ Key Features
+
+## 🔐 1. AES-256-GCM File Encryption
+
+Files are encrypted using AES-256-GCM.
+
+AES-GCM provides:
+
+- Confidentiality
+- Integrity
+- Authentication
+- Tamper detection
+
+A random AES-256 key and random 96-bit nonce are generated for encryption.
+
+---
+
+## 🔑 2. RSA-3072 Key Management
+
+The application supports RSA-3072 public/private key pairs.
+
+The RSA public key is used during encryption, while the corresponding private key is required for decryption.
+
+---
+
+## 🛡️ 3. RSA-OAEP-SHA256 Key Protection
+
+The randomly generated AES key is encrypted using:
+
+```text
+RSA-3072
++
+OAEP
++
+SHA-256
