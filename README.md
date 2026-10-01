@@ -687,22 +687,17 @@ This project demonstrates the following concepts from Cryptography & Network Sec
 
 Repository:
 ```
-<YOUR-GITHUB-REPOSITORY-LINK>
+https://github.com/JITENDRAGAHERWAR03/CNS-MINI-PROJECT
 ```
-Replace the placeholder above with your actual GitHub repository URL before submission.
+
 
 🌐 Live Demo
 ---
 
 Live Demo:
 ```
-<YOUR-LIVE-DEMO-LINK>
+https://cns-mini-project01.streamlit.app/
 ```
-If the project is only running locally:
-```
-http://localhost:8501
-```
-localhost is only accessible from the computer running the application and should not be submitted as a public live-demo URL.
 
 👨‍💻 Author
 ---
