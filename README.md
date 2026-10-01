@@ -160,3 +160,116 @@ SHA-256 Hash
 Compare
 ```
 If the hashes match, the file contents are identical for the compared data.
+
+🔓 7. Secure Decryption
+
+During decryption:
+
+RSA private key unwraps the AES key.
+AES-GCM verifies the authentication tag.
+The encrypted file is decrypted.
+The original file is released only after successful authentication.
+🧪 8. Tamper Detection
+
+The project can demonstrate what happens when encrypted data is modified.
+
+For example:
+
+ Original .sfv
+     ↓
+Modify Ciphertext / Metadata
+     ↓
+AES-GCM Verification
+     ↓
+Authentication Failure
+     ↓
+Decryption Rejected
+
+
+🔒 9. Private Key Protection
+
+The project supports password-protected RSA private keys.
+
+A strong password is recommended when protecting the private key.
+
+🛡️ 10. Input Validation
+
+The project includes validation for:
+
+File size
+File extensions
+RSA keys
+.sfv containers
+Filenames
+Invalid input
+Path traversal attempts
+📋 11. Activity Logging
+
+Security-related events can be recorded through the activity logging system.
+
+Sensitive cryptographic secrets should not be stored in activity logs.
+
+🔄 How the System Works
+Encryption Process
+
+                USER FILE
+                    |
+                    v
+        Generate Random AES-256 Key
+                    |
+                    v
+        Generate Random 96-bit Nonce
+                    |
+                    v
+             AES-256-GCM
+                    |
+             +------+------+
+             |             |
+             v             v
+        Ciphertext       Tag
+                    |
+                    |
+        AES Key + RSA Public Key
+                    |
+                    v
+             RSA-OAEP-SHA256
+                    |
+                    v
+          Encrypted AES Key
+                    |
+                    v
+        +-----------------------+
+        |      .SFV Container   |
+        |-----------------------|
+        | Header                |
+        | Nonce                 |
+        | Encrypted AES Key     |
+        | Tag                   |
+        | Ciphertext            |
+        +-----------------------+
+
+    🔓 Decryption Process
+
+                  .SFV FILE
+                  |
+                  v
+          Read Container
+                  |
+                  v
+           RSA Private Key
+                  |
+                  v
+       Recover AES-256 Key
+                  |
+                  v
+        AES-GCM Verification
+                  |
+           +------+------+
+           |             |
+        SUCCESS        FAILURE
+           |             |
+           v             v
+      Decrypt File    Reject File
+           |
+           v
+      Original File
