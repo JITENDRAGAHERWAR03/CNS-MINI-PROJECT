@@ -107,6 +107,7 @@ OAEP
 SHA-256
 
 ```
+---
 📦 4. Custom .sfv Encrypted Container
 
 Encrypted files are stored using a custom .sfv format.
@@ -132,12 +133,14 @@ File size
 Timestamp
 Cryptographic metadata
 
+---
 🛡️ 5. Metadata Tamper Detection
 
 The .sfv header is passed to AES-GCM as Associated Authenticated Data (AAD).
 
 Therefore, unauthorized modification of authenticated metadata can cause authentication verification to fail.
 
+---
 #️⃣ 6. SHA-256 Integrity Verification
 
 The project supports SHA-256 hashing to compare file contents.
@@ -161,6 +164,7 @@ Compare
 ```
 If the hashes match, the file contents are identical for the compared data.
 
+---
 🔓 7. Secure Decryption
 
 During decryption:
@@ -169,6 +173,8 @@ RSA private key unwraps the AES key.
 AES-GCM verifies the authentication tag.
 The encrypted file is decrypted.
 The original file is released only after successful authentication.
+
+---
 🧪 8. Tamper Detection
 
 The project can demonstrate what happens when encrypted data is modified.
@@ -185,13 +191,14 @@ Authentication Failure
      ↓
 Decryption Rejected
 
-
+---
 🔒 9. Private Key Protection
 
 The project supports password-protected RSA private keys.
 
 A strong password is recommended when protecting the private key.
 
+---
 🛡️ 10. Input Validation
 
 The project includes validation for:
@@ -203,11 +210,15 @@ RSA keys
 Filenames
 Invalid input
 Path traversal attempts
+
+---
 📋 11. Activity Logging
 
 Security-related events can be recorded through the activity logging system.
 
 Sensitive cryptographic secrets should not be stored in activity logs.
+
+---
 
 🔄 How the System Works
 Encryption Process
@@ -248,7 +259,9 @@ Encryption Process
         | Ciphertext            |
         +-----------------------+
 ```
+---
     🔓 Decryption Process
+---
 ```
                   .SFV FILE
                   |
