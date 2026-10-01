@@ -142,7 +142,6 @@ else:
 
 **Limitations:** Academic prototype; private-key protection is critical; a compromised device can defeat file encryption; the .sfv header reveals the original filename, size and creation time; on shared hosting, uploaded files pass through the hosting environment; this system does not provide password recovery if the private key is lost; large files may require significant memory during upload, encryption and decryption.
 
-st.markdown("""
 ### 👨‍💻 Project Information
 
 | Details | Information |
