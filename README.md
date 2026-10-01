@@ -107,9 +107,9 @@ OAEP
 SHA-256
 
 ```
----
-📦 4. Custom .sfv Encrypted Container
 
+📦 4. Custom .sfv Encrypted Container
+---
 Encrypted files are stored using a custom .sfv format.
 
 The container layout is:
@@ -133,16 +133,16 @@ File size
 Timestamp
 Cryptographic metadata
 
----
-🛡️ 5. Metadata Tamper Detection
 
+🛡️ 5. Metadata Tamper Detection
+---
 The .sfv header is passed to AES-GCM as Associated Authenticated Data (AAD).
 
 Therefore, unauthorized modification of authenticated metadata can cause authentication verification to fail.
 
----
-#️⃣ 6. SHA-256 Integrity Verification
 
+#️⃣ 6. SHA-256 Integrity Verification
+---
 The project supports SHA-256 hashing to compare file contents.
 
 Example:
@@ -164,9 +164,9 @@ Compare
 ```
 If the hashes match, the file contents are identical for the compared data.
 
----
-🔓 7. Secure Decryption
 
+🔓 7. Secure Decryption
+---
 During decryption:
 
 RSA private key unwraps the AES key.
@@ -174,8 +174,9 @@ AES-GCM verifies the authentication tag.
 The encrypted file is decrypted.
 The original file is released only after successful authentication.
 
----
+
 🧪 8. Tamper Detection
+---
 
 The project can demonstrate what happens when encrypted data is modified.
 
@@ -191,15 +192,17 @@ Authentication Failure
      ↓
 Decryption Rejected
 
----
+
 🔒 9. Private Key Protection
+---
 
 The project supports password-protected RSA private keys.
 
 A strong password is recommended when protecting the private key.
 
----
+
 🛡️ 10. Input Validation
+---
 
 The project includes validation for:
 
@@ -211,16 +214,18 @@ Filenames
 Invalid input
 Path traversal attempts
 
----
+
 📋 11. Activity Logging
+---
 
 Security-related events can be recorded through the activity logging system.
 
 Sensitive cryptographic secrets should not be stored in activity logs.
 
----
+
 
 🔄 How the System Works
+---
 Encryption Process
 ```
                 USER FILE
@@ -260,8 +265,10 @@ Encryption Process
         +-----------------------+
 ```
 ---
-    🔓 Decryption Process
+🔓 Decryption Process
 ---
+    
+
 ```
                   .SFV FILE
                   |
@@ -303,16 +310,17 @@ Encryption Process
 | Secure Comparison      | HMAC `compare_digest` where applicable |
 
 🛠️ Technologies Used
+---
 Python
 Streamlit
 Cryptography
 Pytest
 Git
 GitHub
----
+
 📚 Python Libraries Used
 cryptography
-
+---
 Used for:
 
 AES-GCM
@@ -328,7 +336,20 @@ Used to create the graphical web-based user interface.
 pytest
 
 Used for automated testing.
----
-Python Standard Library
 
+Python Standard Library
+---
 The project also uses modules such as:
+```
+os
+json
+base64
+struct
+datetime
+re
+hashlib
+hmac
+```
+These support file handling, metadata, encoding, hashing, validation, logging and container processing.
+
+
