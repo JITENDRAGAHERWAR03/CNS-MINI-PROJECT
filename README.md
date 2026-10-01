@@ -542,3 +542,26 @@ Recommended demonstration flow:
         ↓
 13. Run Tamper Demonstration
  ```
+📸 Screenshots
+---
+
+Dashboard
+
+![Secure File Vault Dashboard](screenshots/dashboard.png)
+RSA Key Management
+![RSA Key Management](screenshots/rsa-key-management.png)
+Encrypt File
+![Encrypt File](screenshots/encrypt-file.png)
+Decrypt File
+![Decrypt File](screenshots/decrypt-file.png)
+Integrity Verification
+![Integrity Verification](screenshots/integrity-verification.png)
+
+Place the screenshots inside the screenshots/ folder using the filenames shown above.
+
+☁️ Deployment
+---
+
+The project can be deployed using Streamlit Community Cloud.
+
+General deployment process:
