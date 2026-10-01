@@ -546,27 +546,7 @@ Recommended demonstration flow:
 ---
 
 Dashboard
-```
-![Secure File Vault Dashboard](screenshots/dashboard.png)
-```
-RSA Key Management
-```
-![RSA Key Management](screenshots/rsa-key-management.png)
-```
-Encrypt File
-```
-![Encrypt File](screenshots/encrypt-file.png)
-```
-Decrypt File
-
-[Decrypt File](screenshots/decrypt-file.png)
-
-Integrity Verification
-```
-![Integrity Verification](screenshots/integrity-verification.png)
-```
-
-Place the screenshots inside the screenshots/ folder using the filenames shown above.
+<img width="1920" height="1080" alt="Screenshot 2026-09-30 223544" src="https://github.com/user-attachments/assets/c2d176b1-47aa-4d8c-8429-975544503346" />
 
 ☁️ Deployment
 ---
