@@ -211,7 +211,7 @@ Sensitive cryptographic secrets should not be stored in activity logs.
 
 🔄 How the System Works
 Encryption Process
-
+```
                 USER FILE
                     |
                     v
@@ -247,9 +247,9 @@ Encryption Process
         | Tag                   |
         | Ciphertext            |
         +-----------------------+
-
+```
     🔓 Decryption Process
-
+```
                   .SFV FILE
                   |
                   v
@@ -273,3 +273,4 @@ Encryption Process
            |
            v
       Original File
+```
