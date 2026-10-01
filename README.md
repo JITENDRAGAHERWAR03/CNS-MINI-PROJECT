@@ -36,7 +36,7 @@ Instead of encrypting the complete file using RSA, the project combines two cryp
 
 This approach combines the efficiency of symmetric encryption with the secure key-management capabilities of asymmetric encryption.
 
----
+
 
 # 🎯 Problem Statement
 
@@ -51,7 +51,7 @@ Therefore, this project implements a **Hybrid Encryption System** in which:
 3. AES-GCM authentication detects unauthorized modifications.
 4. SHA-256 can be used to compare file integrity.
 
----
+
 
 # 🎯 Objectives
 
@@ -69,7 +69,7 @@ The main objectives of this project are:
 - 📝 Maintain security activity logs.
 - 🧪 Provide automated tests for important cryptographic workflows.
 
----
+
 
 # ⭐ Key Features
 
@@ -86,7 +86,7 @@ AES-GCM provides:
 
 A random AES-256 key and random 96-bit nonce are generated for encryption.
 
----
+
 
 ## 🔑 2. RSA-3072 Key Management
 
@@ -94,7 +94,6 @@ The application supports RSA-3072 public/private key pairs.
 
 The RSA public key is used during encryption, while the corresponding private key is required for decryption.
 
----
 
 ## 🛡️ 3. RSA-OAEP-SHA256 Key Protection
 
@@ -106,7 +105,7 @@ RSA-3072
 OAEP
 +
 SHA-256
-
+---
 📦 4. Custom .sfv Encrypted Container
 
 Encrypted files are stored using a custom .sfv format.
