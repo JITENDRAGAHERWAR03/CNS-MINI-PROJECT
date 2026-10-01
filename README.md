@@ -105,12 +105,14 @@ RSA-3072
 OAEP
 +
 SHA-256
----
+
+```
 📦 4. Custom .sfv Encrypted Container
 
 Encrypted files are stored using a custom .sfv format.
 
 The container layout is:
+```
 "SFV1"
     |
 Header Length
@@ -120,7 +122,7 @@ JSON Header
 AES-GCM Authentication Tag
     |
 Ciphertext
-
+```
 The header contains information such as:
 
 Nonce
@@ -141,6 +143,8 @@ Therefore, unauthorized modification of authenticated metadata can cause authent
 The project supports SHA-256 hashing to compare file contents.
 
 Example:
+
+```
  Original File
      |
      v
@@ -154,5 +158,5 @@ SHA-256 Hash
      |
      v
 Compare
-
+```
 If the hashes match, the file contents are identical for the compared data.
