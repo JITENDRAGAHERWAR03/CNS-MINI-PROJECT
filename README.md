@@ -352,4 +352,58 @@ hmac
 ```
 These support file handling, metadata, encoding, hashing, validation, logging and container processing.
 
+📁 Project Structure
+---
 
+ secure-file-vault/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── LICENSE
+├── .gitignore
+│
+├── data/
+│
+├── docs/
+│
+├── screenshots/
+│
+├── src/
+│   │
+│   ├── core/
+│   │   ├── container.py
+│   │   └── validators.py
+│   │
+│   ├── crypto/
+│   │   ├── aes.py
+│   │   ├── rsa.py
+│   │   └── key_manager.py
+│   │
+│   ├── security/
+│   │   ├── hashing.py
+│   │   └── activity_log.py
+│   │
+│   └── ui/
+│       └── components.py
+│
+└── tests/
+
+💻 System Requirements
+---
+# Hardware
+Minimum 4 GB RAM recommended
+At least 500 MB free storage
+Modern computer capable of running Python
+# Software
+Windows / Linux / macOS
+Python 3.10+
+VS Code or another Python IDE
+Modern web browser
+
+⚙️ Installation
+---
+1. Clone the Repository
+   git clone <YOUR-GITHUB-REPOSITORY-LINK>
+Move into the project directory:
+   cd secure-file-vault
